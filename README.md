@@ -1,0 +1,2 @@
+#Vocabluary book
+A sample of vocabluary book with ability add unknown words and translation to it. All words store in web localstorage object in JSON format. So after reloading the page all the words that has typed and saved are regenerates.
