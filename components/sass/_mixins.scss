@@ -1,0 +1,111 @@
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+
+@mixin font-size($sizeValue: 2.4) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+@mixin cool-border($rad: $radius, $position: -5px) {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		right: $position;
+		left: $position;
+		top: $position;
+		bottom: $position;
+		background: darken($green,5%);
+		z-index: -1;
+		@include border-radius($rad);
+	}
+}
+
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin keyframes( $animationName )
+{
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}
+
+// @mixin animation($animate) {
+//     $max: length($animate);
+//     $animations: '';
+
+//     @for $i from 1 through $max {
+//         $animations: #{$animations + nth($animate, $i)};
+
+//         @if $i < $max {
+//             $animations: #{$animations + ", "};
+//         }
+//     }
+//     -webkit-animation: $animations;
+//     -moz-animation:    $animations;
+//     -o-animation:      $animations;
+//     animation:         $animations;
+// }
+
+@mixin animation($animations) {
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+
+/* 
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $size2: 6px, $color: #222){
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0; width: 0;
+  @if ($direction == 'up'){
+    border-bottom: $size2 solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'down'){
+    border-top: $size2 solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size2 solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size2 solid $color;
+  }
+}
