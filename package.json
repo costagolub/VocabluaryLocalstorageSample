@@ -2,16 +2,16 @@
   "name": "Vocabluary",
   "version": "0.1.0",
   "devDependencies": {
-    "gulp-util": "~2.2.14",
-    "gulp": "~3.8.5",
-    "gulp-compass": "~1.1.9",
-    "gulp-uglify": "~0.2.1",
-    "gulp-watch": "~0.5.2",
-    "gulp-livereload": "~1.2.0",
-    "tiny-lr": "0.0.5",
-    "gulp-connect": "~1.0.7",
-    "express": "~3.4.8",
     "connect-livereload": "~0.3.2",
-    "gulp-minify-css": "~0.3.5"
+    "express": "~3.4.8",
+    "gulp": "~3.8.5",
+    "gulp-compass": "^2.0.3",
+    "gulp-connect": "~1.0.7",
+    "gulp-livereload": "~1.2.0",
+    "gulp-minify-css": "~0.3.5",
+    "gulp-uglify": "~0.2.1",
+    "gulp-util": "~2.2.14",
+    "gulp-watch": "~0.5.2",
+    "tiny-lr": "0.0.5"
   }
 }

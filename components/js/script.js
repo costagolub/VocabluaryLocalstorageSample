@@ -7,21 +7,19 @@ var btnAdd = $('.btnadd'),
 	template;
 
 	(function showWords() {
-		var lengthLocalSt = localStorage.length,
-			lengthOfArray = (typeof localStorage.vocabluary == "undefined") ? 0 : JSON.parse(localStorage.vocabluary);
+		var lengthLocalSt = localStorage.vocabluary ? true : false,
+			lengthOfArray = lengthLocalSt ? JSON.parse(localStorage.vocabluary) : [];
 
-		if (lengthLocalSt > 0) {
+		
+		if (lengthLocalSt) {
 			for (var i=0; i < lengthOfArray.length; i++) {
-				for (var j in localStorage) {
-					var parseToJSON = JSON.parse(localStorage.getItem(j)),
-						parseObjToJson = JSON.parse(parseToJSON[i]);
-					
-					template = '<div class="page-header">';
-					template += '<h2>' + parseObjToJson.word + ' <small>';
-					template += parseObjToJson.translate + '</small></h2>';
-					template += '</div>';
-					$(template).attr('data-mask', 'tdmask_'+i).appendTo(tdllist);
-				}
+				var parseObjToJson = JSON.parse(lengthOfArray[i]);
+
+				template = '<div class="page-header">';
+				template += '<h2>' + parseObjToJson.word + ' <small>';
+				template += parseObjToJson.translate + '</small></h2>';
+				template += '</div>';
+				$(template).attr('data-mask', 'tdmask_'+i).appendTo(tdllist);
 			}
 		}
 	})();
